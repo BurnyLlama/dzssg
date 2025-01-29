@@ -18,7 +18,12 @@
   },
   "dependencies": {
     "chokidar": "^4.0.3",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "nunjucks": "^3.2.4"
+    "marked": "^15.0.6",
+    "nunjucks": "^3.2.4",
+    "nunjucks-markdown": "^2.0.1",
+    "sass": "^1.83.4",
+    "yaml": "^2.7.0"
   }
 }
