@@ -2,7 +2,7 @@
 
 source .env
 
-echo "Creating directories..."
-mkdir -p "$CONTENT_PATH/{fonts,media,posts,scss,views/{components,pages,templates}}"
+echo "Creating default folder structure..."
+cp -rv ./resources/default-folder-structure/* "$CONTENT_PATH"
 
 mkdir out

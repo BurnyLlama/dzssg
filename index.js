@@ -54,7 +54,7 @@ if (runFuncs[runOption]) {
 function dev() {
     const app = express()
 
-    createNunjucksRenderer(`${CONTENT_DIR}/views`, app)
+    const renderer = createNunjucksRenderer(`${CONTENT_DIR}/views`, app)
 
     app.use("/static/media", express.static(`${CONTENT_DIR}/media`))
     app.use("/static/fonts", express.static(`${CONTENT_DIR}/fonts`))
@@ -78,7 +78,7 @@ function dev() {
         const markdown = markdownArray.join("---")
         const context = YAML.parse(frontmatter)
 
-        res.render("templates/default.njk", { ...context, markdown })
+        res.send(renderer.renderString(fs.readFileSync("./resources/markdown.njk", "utf-8"), { ...context, markdown }))
     })
 
     app.get("/sitemap", (req, res) => {

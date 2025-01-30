@@ -1,0 +1,4 @@
+{% extends "templates/" + (template | default("base")) + ".njk" %}
+{% block main %}
+    {% markdown %}{{ markdown }}{% endmarkdown %}
+{% endblock main %}
