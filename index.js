@@ -2,7 +2,7 @@ import { config } from "dotenv"
 import express from "express"
 import * as sass from "sass"
 import createNunjucksRenderer from "./lib/nunjucksRenderer.js"
-import { createPostsTree, flattenTree } from "./postTraverser.js"
+import { createPostsTree, flattenTree } from "./lib/postTraverser.js"
 import fs from "fs"
 import YAML from "yaml"
 
