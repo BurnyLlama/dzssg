@@ -73,10 +73,11 @@ function dev() {
             return res.status(404).send("Sorry no exists!")
         }
 
+        // Read markdown and frontmatter
         const fileContent = fs.readFileSync(`${CONTENT_DIR}/${req.path}.md`, "utf-8")
         const [, frontmatter, ...markdownArray] = fileContent.split(/^---$/gm)
-        const markdown = markdownArray.join("---")
-        const context = YAML.parse(frontmatter)
+        const markdown = markdownArray?.join("---")
+        const context = YAML.parse(frontmatter ?? "")
 
         res.send(renderer.renderString(fs.readFileSync("./resources/markdown.njk", "utf-8"), { ...context, markdown }))
     })
